@@ -136,13 +136,14 @@ export function PassFront({ data }: { data: PassData }) {
       {/* ---- team & handle ---- */}
       {data.organization && (
         <div
-          className="absolute uppercase leading-[0.88]"
+          className="absolute uppercase text-center"
           style={{
             left: 326,
-            top: 310,
-            fontFamily: "var(--font-display)",
-            fontWeight: 800,
-            fontSize: 36,
+            top: 412,
+            width: 220,
+            fontFamily: "var(--font-mono)",
+            fontSize: 14,
+            letterSpacing: "0.14em",
             color: "var(--cream)",
           }}
         >
@@ -151,13 +152,14 @@ export function PassFront({ data }: { data: PassData }) {
       )}
       {data.handle && (
         <div
-          className="absolute"
+          className="absolute text-center"
           style={{
             left: 326,
-            top: 354,
+            top: 448,
+            width: 220,
             fontFamily: "var(--font-mono)",
-            fontSize: 15,
-            letterSpacing: "0.1em",
+            fontSize: 14,
+            letterSpacing: "0.14em",
             color: "var(--sun)",
           }}
         >
