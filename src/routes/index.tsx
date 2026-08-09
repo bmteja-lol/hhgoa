@@ -81,7 +81,7 @@ function Index() {
   const [data, setData] = useState<PassData>({
     name: "Your Name",
     designation: "Builder",
-    passType: "House Pass",
+    passType: "Builder",
     idNumber: `HH26-${String(Math.floor(1000 + Math.random() * 9000))}`,
     organization: "",
     handle: "",
@@ -221,17 +221,14 @@ function Index() {
           </Field>
 
           <div className="grid grid-cols-2 gap-4">
-            <Field step="04" label="PASS TYPE">
-              <select
+            <Field step="04" label="BUILDER TITLE">
+              <input
                 className={inputCls}
                 style={{ fontFamily: "var(--font-mono)", fontSize: 14 }}
                 value={data.passType}
                 onChange={(e) => set("passType", e.target.value)}
-              >
-                {PASS_TYPES.map((p) => (
-                  <option key={p}>{p}</option>
-                ))}
-              </select>
+                placeholder="YOUR CATCHY TITLE"
+              />
             </Field>
             <Field step="05" label="TEAM NAME">
               <input
