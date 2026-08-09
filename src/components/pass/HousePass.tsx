@@ -142,7 +142,7 @@ export function PassFront({ data }: { data: PassData }) {
             top: 412,
             width: 220,
             fontFamily: "var(--font-mono)",
-            fontSize: 14,
+            fontSize: 17,
             letterSpacing: "0.14em",
             color: "var(--cream)",
           }}
@@ -158,7 +158,7 @@ export function PassFront({ data }: { data: PassData }) {
             top: 448,
             width: 220,
             fontFamily: "var(--font-mono)",
-            fontSize: 14,
+            fontSize: 17,
             letterSpacing: "0.14em",
             color: "var(--sun)",
           }}
