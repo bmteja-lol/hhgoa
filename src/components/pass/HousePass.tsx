@@ -133,47 +133,6 @@ export function PassFront({ data }: { data: PassData }) {
         </div>
       </div>
 
-      {/* ---- team & handle ---- */}
-      {data.organization && (
-        <div
-          className="absolute uppercase"
-          style={{
-            left: 326,
-            top: 412,
-            width: 200,
-            fontFamily: "var(--font-mono)",
-            fontSize: 14,
-            lineHeight: 1.2,
-            letterSpacing: "0.1em",
-            color: "var(--cream)",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap",
-          }}
-        >
-          {data.organization}
-        </div>
-      )}
-      {data.handle && (
-        <div
-          className="absolute"
-          style={{
-            left: 326,
-            top: 442,
-            width: 200,
-            fontFamily: "var(--font-mono)",
-            fontSize: 12,
-            letterSpacing: "0.08em",
-            color: "var(--sun)",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-            whiteSpace: "nowrap",
-          }}
-        >
-          {data.handle}
-        </div>
-      )}
-
       {/* palm crossing the photo — elements don't respect containers */}
       <Palm className="absolute left-[-8px] top-[300px] w-[132px]" />
       <Palm className="absolute right-[-16px] top-[352px] w-[136px]" flip />
