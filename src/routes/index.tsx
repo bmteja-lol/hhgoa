@@ -82,7 +82,7 @@ function Index() {
     name: "Your Name",
     designation: "Builder",
     passType: "House Pass",
-    idNumber: "HH26-0042",
+    idNumber: `HH26-${String(Math.floor(1000 + Math.random() * 9000))}`,
     organization: "",
     handle: "",
     photo: null,
@@ -233,16 +233,7 @@ function Index() {
                 ))}
               </select>
             </Field>
-            <Field step="05" label="ID NUMBER">
-              <input
-                className={inputCls}
-                style={{ fontFamily: "var(--font-mono)", fontSize: 14 }}
-                value={data.idNumber}
-                onChange={(e) => set("idNumber", e.target.value)}
-                placeholder="HH26-0042"
-              />
-            </Field>
-            <Field step="06" label="TEAM NAME">
+            <Field step="05" label="TEAM NAME">
               <input
                 className={inputCls}
                 style={{ fontFamily: "var(--font-mono)", fontSize: 14 }}
@@ -251,7 +242,7 @@ function Index() {
                 placeholder="YOUR TEAM NAME"
               />
             </Field>
-            <Field step="07" label="HANDLE">
+            <Field step="06" label="HANDLE">
               <input
                 className={inputCls}
                 style={{ fontFamily: "var(--font-mono)", fontSize: 14 }}

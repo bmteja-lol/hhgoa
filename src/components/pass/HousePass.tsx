@@ -39,7 +39,6 @@ export function PassFront({ data }: { data: PassData }) {
   const rand = seeded(data.name + data.designation);
   const [first, last] = splitName(data.name);
   const tilt = rand(-1.6, 1.6);
-  const shift = rand(-4, 4);
 
   return (
     <div
@@ -61,15 +60,15 @@ export function PassFront({ data }: { data: PassData }) {
           HACKER
         </div>
         <div
-          className="leading-[0.78] pl-[86px] tracking-tight"
+          className="leading-[0.78] pl-[86px] tracking-tight flex items-baseline gap-4"
           style={{
             fontFamily: "var(--font-display)",
             fontWeight: 800,
             fontSize: 96,
-            color: "var(--sun)",
           }}
         >
-          HOUSE
+          <span style={{ color: "var(--sun)" }}>HOUSE</span>
+          <span style={{ color: "var(--pink)" }}>GOA'26</span>
         </div>
       </div>
       {/* studio mark */}
@@ -79,18 +78,6 @@ export function PassFront({ data }: { data: PassData }) {
         className="absolute right-[28px] top-[22px] w-[104px]"
         style={{ transform: `rotate(${rand(-3, 3)}deg)` }}
       />
-
-      <div
-        className="absolute right-[34px] top-[176px] origin-center"
-        style={{ transform: `rotate(-90deg) translateX(${shift}px)` }}
-      >
-        <span
-          style={{ fontFamily: "var(--font-editorial)", fontSize: 40, color: "var(--pink)" }}
-        >
-          Goa '26
-        </span>
-      </div>
-
 
       {/* ---- horizon scene ---- */}
       <Sun className="absolute left-[300px] top-[176px] w-[190px]" />
@@ -145,6 +132,38 @@ export function PassFront({ data }: { data: PassData }) {
           </div>
         </div>
       </div>
+
+      {/* ---- team & handle ---- */}
+      {data.organization && (
+        <div
+          className="absolute uppercase leading-[0.88]"
+          style={{
+            left: 326,
+            top: 310,
+            fontFamily: "var(--font-display)",
+            fontWeight: 800,
+            fontSize: 36,
+            color: "var(--cream)",
+          }}
+        >
+          {data.organization}
+        </div>
+      )}
+      {data.handle && (
+        <div
+          className="absolute"
+          style={{
+            left: 326,
+            top: 354,
+            fontFamily: "var(--font-mono)",
+            fontSize: 15,
+            letterSpacing: "0.1em",
+            color: "var(--sun)",
+          }}
+        >
+          {data.handle}
+        </div>
+      )}
 
       {/* palm crossing the photo — elements don't respect containers */}
       <Palm className="absolute left-[-8px] top-[300px] w-[132px]" />
