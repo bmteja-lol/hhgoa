@@ -79,9 +79,9 @@ const inputCls =
 
 function Index() {
   const [data, setData] = useState<PassData>({
-    name: "Your Name",
-    designation: "Builder",
-    passType: "Builder",
+    name: "",
+    designation: "",
+    passType: "",
     idNumber: `HH26-${String(Math.floor(1000 + Math.random() * 9000))}`,
     organization: "",
     handle: "",

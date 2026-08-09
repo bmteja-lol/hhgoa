@@ -27,7 +27,7 @@ function seeded(seed: string) {
 
 function splitName(name: string) {
   const parts = name.trim().split(/\s+/).filter(Boolean);
-  if (parts.length === 0) return ["YOUR", "NAME"];
+  if (parts.length === 0) return ["", ""];
   if (parts.length === 1) return [parts[0], ""];
   return [parts[0], parts.slice(1).join(" ")];
 }
@@ -37,7 +37,7 @@ export const CARD_H = 800;
 
 export function PassFront({ data }: { data: PassData }) {
   const rand = seeded(data.name + data.designation);
-  const [first, last] = splitName(data.name);
+  const [first, last] = splitName(data.name || "");
   const tilt = rand(-1.6, 1.6);
 
   return (
@@ -178,7 +178,7 @@ export function PassFront({ data }: { data: PassData }) {
           letterSpacing: "0.22em",
         }}
       >
-        {(data.designation || "BUILDER").toUpperCase()}
+        {(data.designation || "").toUpperCase()}
       </div>
 
       <div
