@@ -5,8 +5,8 @@ const publicDir = '.output/public';
 const assetsDir = join(publicDir, 'assets');
 
 if (!existsSync(assetsDir)) {
-  console.error('Assets directory not found. Run build first.');
-  process.exit(1);
+  console.log('Assets directory not found at .output/public — skipping (likely Vercel build).');
+  process.exit(0);
 }
 
 const files = readdirSync(assetsDir);
