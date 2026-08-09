@@ -1,4 +1,4 @@
-import { readdirSync, writeFileSync, existsSync } from 'fs';
+import { readdirSync, readFileSync, writeFileSync, existsSync } from 'fs';
 import { join } from 'path';
 
 const publicDir = '.output/public';
@@ -18,6 +18,25 @@ if (!jsFile) {
   process.exit(1);
 }
 
+// Patch: TanStack Start client entry resets basepath to "".
+// We need to preserve our basepath "/hhgoa" for GitHub Pages deployment.
+const jsPath = join(assetsDir, jsFile);
+let js = readFileSync(jsPath, 'utf-8');
+
+const original = js;
+js = js.replace(
+  'basepath:``,serializationAdapters',
+  'basepath:`/hhgoa`,serializationAdapters'
+);
+
+if (js !== original) {
+  writeFileSync(jsPath, js);
+  console.log(`Patched basepath in ${jsFile}`);
+} else {
+  console.warn('WARNING: basepath patch pattern not found in bundle!');
+}
+
+// Generate index.html
 const html = `<!DOCTYPE html>
 <html lang="en">
   <head>
