@@ -19,7 +19,6 @@ if (!jsFile) {
 }
 
 // Patch: TanStack Start client entry resets basepath to "".
-// We need to preserve our basepath "/hhgoa" for GitHub Pages deployment.
 const jsPath = join(assetsDir, jsFile);
 let js = readFileSync(jsPath, 'utf-8');
 
@@ -48,6 +47,9 @@ const html = `<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;800;900&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
     ${cssFile ? `<link rel="stylesheet" href="/hhgoa/assets/${cssFile}" />` : ''}
+    <script>
+      window.$_TSR = { buffer: [], initialized: false, router: { manifest: {} } };
+    </script>
   </head>
   <body>
     <div id="app"></div>
