@@ -48,7 +48,7 @@ const html = `<!DOCTYPE html>
     <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;800;900&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
     ${cssFile ? `<link rel="stylesheet" href="/hhgoa/assets/${cssFile}" />` : ''}
     <script>
-      window.$_TSR = { buffer: [], initialized: false, router: { manifest: {} }, h: function() {}, t: new Map() };
+      window.$_TSR = { buffer: [], initialized: false, router: { manifest: {}, matches: [], dehydratedData: null }, h: function() {}, t: new Map() };
     </script>
   </head>
   <body>

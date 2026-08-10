@@ -1,8 +1,8 @@
 /** Flat screen-print Goa illustrations. No gradients, no shadows — just shapes. */
 
-export function Sun({ className = "" }: { className?: string }) {
+export function Sun({ className = "", style }: { className?: string; style?: React.CSSProperties }) {
   return (
-    <svg viewBox="0 0 120 120" className={className} aria-hidden="true">
+    <svg viewBox="0 0 120 120" className={className} style={style} aria-hidden="true">
       <circle cx="60" cy="60" r="30" fill="var(--sun)" />
       {Array.from({ length: 16 }).map((_, i) => {
         const a = (i * Math.PI * 2) / 16;
@@ -23,12 +23,12 @@ export function Sun({ className = "" }: { className?: string }) {
   );
 }
 
-export function Palm({ className = "", flip = false }: { className?: string; flip?: boolean }) {
+export function Palm({ className = "", flip = false, style }: { className?: string; flip?: boolean; style?: React.CSSProperties }) {
   return (
     <svg
       viewBox="0 0 100 160"
       className={className}
-      style={flip ? { transform: "scaleX(-1)" } : undefined}
+      style={{ ...(flip ? { transform: "scaleX(-1)" } : {}), ...style }}
       aria-hidden="true"
     >
       <path
@@ -52,9 +52,9 @@ export function Palm({ className = "", flip = false }: { className?: string; fli
 }
 
 
-export function Waves({ className = "" }: { className?: string }) {
+export function Waves({ className = "", style }: { className?: string; style?: React.CSSProperties }) {
   return (
-    <svg viewBox="0 0 300 40" className={className} preserveAspectRatio="none" aria-hidden="true">
+    <svg viewBox="0 0 300 40" className={className} style={style} preserveAspectRatio="none" aria-hidden="true">
       {[6, 18, 30].map((y, i) => (
         <path
           key={y}
@@ -69,9 +69,9 @@ export function Waves({ className = "" }: { className?: string }) {
   );
 }
 
-export function GoanHouse({ className = "" }: { className?: string }) {
+export function GoanHouse({ className = "", style }: { className?: string; style?: React.CSSProperties }) {
   return (
-    <svg viewBox="0 0 140 120" className={className} aria-hidden="true">
+    <svg viewBox="0 0 140 120" className={className} style={style} aria-hidden="true">
       <path d="M8 52 L70 14 L132 52 Z" fill="var(--terracotta)" stroke="var(--ink)" strokeWidth="3" />
       <path d="M8 52 h124 v62 H8 Z" fill="var(--cream)" stroke="var(--ink)" strokeWidth="3" />
       <rect x="22" y="66" width="26" height="30" fill="var(--pink)" stroke="var(--ink)" strokeWidth="3" />
@@ -83,9 +83,9 @@ export function GoanHouse({ className = "" }: { className?: string }) {
   );
 }
 
-export function Scooter({ className = "" }: { className?: string }) {
+export function Scooter({ className = "", style }: { className?: string; style?: React.CSSProperties }) {
   return (
-    <svg viewBox="0 0 140 90" className={className} aria-hidden="true">
+    <svg viewBox="0 0 140 90" className={className} style={style} aria-hidden="true">
       <circle cx="28" cy="66" r="16" fill="none" stroke="currentColor" strokeWidth="5" />
       <circle cx="112" cy="66" r="16" fill="none" stroke="currentColor" strokeWidth="5" />
       <path
@@ -102,9 +102,9 @@ export function Scooter({ className = "" }: { className?: string }) {
   );
 }
 
-export function Bird({ className = "" }: { className?: string }) {
+export function Bird({ className = "", style }: { className?: string; style?: React.CSSProperties }) {
   return (
-    <svg viewBox="0 0 40 16" className={className} aria-hidden="true">
+    <svg viewBox="0 0 40 16" className={className} style={style} aria-hidden="true">
       <path
         d="M2 12 q 9 -11 18 0 q 9 -11 18 0"
         fill="none"
@@ -116,9 +116,9 @@ export function Bird({ className = "" }: { className?: string }) {
   );
 }
 
-export function Boat({ className = "" }: { className?: string }) {
+export function Boat({ className = "", style }: { className?: string; style?: React.CSSProperties }) {
   return (
-    <svg viewBox="0 0 120 90" className={className} aria-hidden="true">
+    <svg viewBox="0 0 120 90" className={className} style={style} aria-hidden="true">
       <path d="M10 68 h100 l-16 16 H26 Z" fill="currentColor" />
       <line x1="60" y1="10" x2="60" y2="68" stroke="currentColor" strokeWidth="4" />
       <path d="M62 14 L98 62 H62 Z" fill="var(--pink)" />
