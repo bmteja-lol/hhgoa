@@ -137,6 +137,18 @@ function Index() {
         <Waves className="mt-3 h-5 w-full opacity-60" />
       </header>
 
+      {/* features */}
+      <div className="mx-auto max-w-[1600px] border-b border-cream/20 px-4 py-6 md:px-8">
+        <div className="grid gap-3 md:grid-cols-3" style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.12em", lineHeight: 1.6 }}>
+          <div className="flex gap-2"><span className="text-sun">✦</span> 1-click download + 1-click Share to X</div>
+          <div className="flex gap-2"><span className="text-sun">✦</span> Works on any photo — no manual cropping</div>
+          <div className="flex gap-2"><span className="text-sun">✦</span> Personalized: name, stack, a generated builder class</div>
+          <div className="flex gap-2"><span className="text-sun">✦</span> Seconds from upload to shareable output</div>
+          <div className="flex gap-2"><span className="text-sun">✦</span> Get to the top of the ladder and win the exclusive HH Goa ID</div>
+          <div className="flex gap-2"><span className="text-sun">✦</span> Use #FrameInGoa to get featured in the Radar</div>
+        </div>
+      </div>
+
       <div className="mx-auto grid max-w-[1600px] gap-10 px-4 py-8 md:px-8 lg:grid-cols-[minmax(0,380px)_1fr]">
         {/* form — 40% */}
         <section className="space-y-5">
