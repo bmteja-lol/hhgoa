@@ -257,12 +257,6 @@ export function PassFront({ data }: { data: PassData }) {
                 <span style={{ fontWeight: 700, fontSize: 22 }}>{data.organization.toUpperCase()}</span>
               </div>
             )}
-            {data.handle && (
-              <div>
-                <span style={{ color: "var(--pink)", letterSpacing: "0.2em", fontSize: 14 }}>HANDLE </span>
-                <span style={{ fontWeight: 700, fontSize: 22 }}>@{data.handle}</span>
-              </div>
-            )}
           </div>
 
           {/* ID NO block */}
@@ -389,7 +383,6 @@ export function PassBack({ data }: { data: PassData }) {
           <div><span style={{ color: "var(--sun)", letterSpacing: "0.15em", fontSize: 11 }}>PASS </span><span>{(data.passType || "HOUSE PASS").toUpperCase()}</span></div>
           <div><span style={{ color: "var(--sun)", letterSpacing: "0.15em", fontSize: 11 }}>ID </span><span>{data.idNumber || "HH26-0427"}</span></div>
           {data.organization && <div><span style={{ color: "var(--sun)", letterSpacing: "0.15em", fontSize: 11 }}>TEAM </span><span>{data.organization.toUpperCase()}</span></div>}
-          {data.handle && <div><span style={{ color: "var(--sun)", letterSpacing: "0.15em", fontSize: 11 }}>@</span><span>{data.handle}</span></div>}
         </div>
       </div>
 

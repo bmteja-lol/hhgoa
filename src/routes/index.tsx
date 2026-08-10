@@ -223,9 +223,6 @@ function Index() {
               <input className={inputCls} style={{ fontFamily: "var(--font-mono)", fontSize: 14 }} value={data.organization} onChange={(e) => set("organization", e.target.value)} placeholder="YOUR TEAM" />
             </Field>
           </div>
-          <Field step="06" label="HANDLE">
-            <input className={inputCls} style={{ fontFamily: "var(--font-mono)", fontSize: 14 }} value={data.handle} onChange={(e) => set("handle", e.target.value)} placeholder="@YOURHANDLE" />
-          </Field>
           <div className="flex gap-3">
             <button onClick={download} disabled={busy} className="flex-1 border-[3px] border-ink bg-pink px-6 py-4 text-cream transition-transform hover:-translate-y-[2px] disabled:opacity-60" style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 22, letterSpacing: "0.06em", boxShadow: "6px 6px 0 var(--sun)" }}>
               {busy ? "PRINTING…" : "DOWNLOAD ↓"}
