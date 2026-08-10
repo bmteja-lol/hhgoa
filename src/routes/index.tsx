@@ -141,7 +141,7 @@ function Index() {
         {/* form — 40% */}
         <section className="space-y-5">
           <Field step="01" label="YOUR NAME">
-            <input className={inputCls} style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 28, letterSpacing: "0.02em" }} value={data.name} onChange={(e) => set("name", e.target.value)} placeholder="EASWAR SAI" />
+            <input className={inputCls} style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 28, letterSpacing: "0.02em" }} value={data.name} onChange={(e) => set("name", e.target.value)} placeholder="YOUR NAME" />
           </Field>
           <Field step="02" label="DESIGNATION">
             <select className={inputCls} style={{ fontFamily: "var(--font-mono)", fontSize: 14 }} value={data.designation} onChange={(e) => set("designation", e.target.value)}>
