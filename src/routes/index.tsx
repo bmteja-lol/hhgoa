@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { toPng } from "html-to-image";
 import { PassFront, PassBack, CARD_W, CARD_H, type PassData } from "@/components/pass/HousePass";
 import { Palm, Waves, Sun } from "@/components/pass/GoaArt";
@@ -53,6 +53,38 @@ const ROLES: Record<string, string[]> = {
 
 const PASS_TYPES = ["House Pass", "Builder Pass", "Mentor Pass", "Judge Pass", "Crew Pass", "Speaker Pass", "Guest Pass", "Media Pass", "Partner Pass"];
 
+const BUILDER_CLASSES = [
+  "The Architect", "The Alchemist", "The Navigator", "The Catalyst", "The Sentinel",
+  "The Visionary", "The Weaver", "The Harmonizer", "The Provocateur", "The Luminary",
+  "The Trailblazer", "The Synthesizer", "The Guardian", "The Oracle", "The Pioneer",
+  "The Strategist", "The Sculptor", "The Amplifier", "The Cipher", "The Beacon",
+];
+
+const STACKS = [
+  "Full Stack", "Frontend", "Backend", "AI/ML", "DevOps", "Web3", "Systems",
+  "Mobile", "Security", "Data", "Cloud", "Embedded", "Game Dev", "Infra",
+];
+
+function seededRandom(seed: string) {
+  let h = 2166136261;
+  for (let i = 0; i < seed.length; i++) {
+    h ^= seed.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return (min: number, max: number) => {
+    h = Math.imul(h ^ (h >>> 15), 2246822507);
+    h ^= h >>> 13;
+    return min + (Math.abs(h) % 1000) / 1000 * (max - min);
+  };
+}
+
+function generateBuilderClass(name: string, designation: string) {
+  const rand = seededRandom(name + designation);
+  const cls = BUILDER_CLASSES[Math.floor(rand(0, BUILDER_CLASSES.length))];
+  const stack = STACKS[Math.floor(rand(0, STACKS.length))];
+  return { cls, stack };
+}
+
 function Field({ step, label, children }: { step: string; label: string; children: React.ReactNode }) {
   return (
     <label className="block">
@@ -81,6 +113,14 @@ function Index() {
   const cardRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0.5);
+
+  const builderInfo = useMemo(() => generateBuilderClass(data.name, data.designation), [data.name, data.designation]);
+
+  const dataWithBuilder = useMemo(() => ({
+    ...data,
+    builderClass: builderInfo.cls ?? "",
+    stack: builderInfo.stack ?? "",
+  }), [data, builderInfo]);
 
   useEffect(() => {
     const el = frameRef.current;
@@ -122,6 +162,16 @@ function Index() {
     } finally { setBusy(false); }
   };
 
+  const shareToX = async () => {
+    if (!cardRef.current) return;
+    setBusy(true);
+    try {
+      const url = await toPng(cardRef.current, { pixelRatio: 2, cacheBust: true });
+      const text = encodeURIComponent(`My Hacker House Goa '26 pass 🏠🌴\n\n${builderInfo.cls} · ${builderInfo.stack}\n${data.idNumber}\n\n#FrameInGoa #HackerHouseGoa`);
+      window.open(`https://x.com/intent/tweet?text=${text}`, "_blank");
+    } finally { setBusy(false); }
+  };
+
   return (
     <main className="paper-grain min-h-screen bg-goa text-cream">
       {/* masthead */}
@@ -136,23 +186,6 @@ function Index() {
         <p className="mt-1" style={{ fontFamily: "var(--font-editorial)", fontSize: 28, color: "var(--pink)" }}>Goa '26 — make your house pass</p>
         <Waves className="mt-3 h-5 w-full opacity-60" />
       </header>
-
-      {/* features */}
-      <div className="mx-auto max-w-[1600px] border-b border-cream/20 px-4 py-6 md:px-8">
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2" style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.1em", color: "var(--cream)", opacity: 0.8 }}>
-          <span>1-click download + 1-click Share to X</span>
-          <span className="text-sun">•</span>
-          <span>Works on any photo — no manual cropping</span>
-          <span className="text-sun">•</span>
-          <span>Personalized: name, stack, a generated builder class</span>
-          <span className="text-sun">•</span>
-          <span>Seconds from upload to shareable output</span>
-          <span className="text-sun">•</span>
-          <span>Get to the top of the ladder and win the exclusive HH Goa ID</span>
-          <span className="text-sun">•</span>
-          <span>Use #FrameInGoa to get featured in the Radar</span>
-        </div>
-      </div>
 
       <div className="mx-auto grid max-w-[1600px] gap-10 px-4 py-8 md:px-8 lg:grid-cols-[minmax(0,380px)_1fr]">
         {/* form — 40% */}
@@ -193,9 +226,22 @@ function Index() {
           <Field step="06" label="HANDLE">
             <input className={inputCls} style={{ fontFamily: "var(--font-mono)", fontSize: 14 }} value={data.handle} onChange={(e) => set("handle", e.target.value)} placeholder="@YOURHANDLE" />
           </Field>
-          <button onClick={download} disabled={busy} className="w-full border-[3px] border-ink bg-pink px-6 py-4 text-cream transition-transform hover:-translate-y-[2px] disabled:opacity-60" style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 28, letterSpacing: "0.06em", boxShadow: "6px 6px 0 var(--sun)" }}>
-            {busy ? "PRINTING…" : `GENERATE ${side === "front" ? "FRONT" : "BACK"} →`}
-          </button>
+          {data.name && data.designation && (
+            <div className="border border-cream/20 px-4 py-3" style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.1em" }}>
+              <span style={{ color: "var(--sun)" }}>BUILDER CLASS </span>
+              <span style={{ fontWeight: 700, fontSize: 14 }}>{builderInfo.cls}</span>
+              <span style={{ color: "var(--cream)", opacity: 0.5 }}> · </span>
+              <span style={{ color: "var(--pink)" }}>{builderInfo.stack}</span>
+            </div>
+          )}
+          <div className="flex gap-3">
+            <button onClick={download} disabled={busy} className="flex-1 border-[3px] border-ink bg-pink px-6 py-4 text-cream transition-transform hover:-translate-y-[2px] disabled:opacity-60" style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 22, letterSpacing: "0.06em", boxShadow: "6px 6px 0 var(--sun)" }}>
+              {busy ? "PRINTING…" : "DOWNLOAD ↓"}
+            </button>
+            <button onClick={shareToX} disabled={busy} className="flex-1 border-[3px] border-cream/60 bg-goa-deep px-6 py-4 text-cream transition-transform hover:-translate-y-[2px] disabled:opacity-60" style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 22, letterSpacing: "0.06em", boxShadow: "6px 6px 0 var(--sun)" }}>
+              {busy ? "SHARING…" : "SHARE TO X ✦"}
+            </button>
+          </div>
         </section>
 
         {/* preview — 60%, card fills 95% of width */}
@@ -213,7 +259,7 @@ function Index() {
             <div ref={frameRef} style={{ width: "100%", aspectRatio: `${CARD_W} / ${CARD_H}`, position: "relative" }}>
               <div style={{ position: "absolute", top: 0, left: 0, width: CARD_W, height: CARD_H, transformOrigin: "top left", transform: `scale(${scale})` }}>
                 <div ref={cardRef}>
-                  {side === "front" ? <PassFront data={data} /> : <PassBack data={data} />}
+                  {side === "front" ? <PassFront data={dataWithBuilder} /> : <PassBack data={dataWithBuilder} />}
                 </div>
               </div>
             </div>

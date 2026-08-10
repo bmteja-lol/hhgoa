@@ -1,0 +1,171 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - paragraph [ref=e4]: THE HOUSE REGISTRATION DESK
+    - heading "HACKER HOUSE" [level=1] [ref=e5]:
+      - generic [ref=e6]: HACKER
+      - generic [ref=e7]: HOUSE
+    - paragraph [ref=e8]: Goa '26 — make your house pass
+  - generic [ref=e13]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]: 01 — YOUR NAME
+        - textbox "01 — YOUR NAME" [ref=e17]:
+          - /placeholder: EASWAR SAI
+      - generic [ref=e18]:
+        - generic [ref=e19]: 02 — DESIGNATION
+        - combobox "02 — DESIGNATION" [ref=e20]:
+          - option "Hacker" [selected]
+          - option "Participant"
+          - option "Builder"
+          - option "Developer"
+          - option "Engineer"
+          - option "Student"
+          - option "Maker"
+          - option "Creator"
+          - option "Researcher"
+          - option "Designer"
+          - option "Founder"
+          - option "Entrepreneur"
+          - option "Open Source Contributor"
+          - option "AI Engineer"
+          - option "ML Engineer"
+          - option "Security Researcher"
+          - option "Web3 Builder"
+          - option "Blockchain Developer"
+          - option "Product Builder"
+          - option "Organizer"
+          - option "Core Team"
+          - option "Event Lead"
+          - option "Program Lead"
+          - option "Community Lead"
+          - option "Operations"
+          - option "Operations Lead"
+          - option "Event Operations"
+          - option "Volunteer"
+          - option "Coordinator"
+          - option "Registration"
+          - option "Hospitality"
+          - option "Logistics"
+          - option "Production"
+          - option "Stage Manager"
+          - option "Event Manager"
+          - option "Engineering"
+          - option "Tech Team"
+          - option "Technical Lead"
+          - option "Infrastructure"
+          - option "DevOps"
+          - option "Platform Engineer"
+          - option "Security"
+          - option "Security Team"
+          - option "IT Support"
+          - option "Web Team"
+          - option "Systems Engineer"
+          - option "Mentor"
+          - option "Technical Mentor"
+          - option "Industry Mentor"
+          - option "Judge"
+          - option "Technical Judge"
+          - option "Jury"
+          - option "Reviewer"
+          - option "Advisor"
+          - option "Expert"
+          - option "Speaker"
+          - option "Workshop Facilitator"
+          - option "Community"
+          - option "Community Builder"
+          - option "Developer Advocate"
+          - option "Open Source"
+          - option "Open Source Maintainer"
+          - option "Ecosystem"
+          - option "Ecosystem Partner"
+          - option "Community Partner"
+          - option "Ambassador"
+          - option "Campus Ambassador"
+          - option "Fellow"
+          - option "Resident"
+          - option "Hacker House Resident"
+          - option "Photographer"
+          - option "Videographer"
+          - option "Content"
+          - option "Content Creator"
+          - option "Media"
+          - option "Media Team"
+          - option "Creative"
+          - option "Creative Team"
+          - option "Social Media"
+          - option "Communications"
+          - option "Press"
+          - option "Sponsor"
+          - option "Partner"
+          - option "Technology Partner"
+          - option "Media Partner"
+          - option "Startup Partner"
+          - option "Investor"
+          - option "Guest"
+      - generic [ref=e21]:
+        - generic [ref=e22]: 03 — YOUR PHOTO
+        - generic [ref=e23] [cursor=pointer]:
+          - button "03 — YOUR PHOTO DROP PHOTO HERE JPG · PNG · WEBP · HEIC" [ref=e24]
+          - generic [ref=e25]: DROP PHOTO HEREJPG · PNG · WEBP · HEIC
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - generic [ref=e28]: 04 — PASS TYPE
+          - combobox "04 — PASS TYPE" [ref=e29]:
+            - option "SELECT PASS" [selected]
+            - option "House Pass"
+            - option "Builder Pass"
+            - option "Mentor Pass"
+            - option "Judge Pass"
+            - option "Crew Pass"
+            - option "Speaker Pass"
+            - option "Guest Pass"
+            - option "Media Pass"
+            - option "Partner Pass"
+        - generic [ref=e30]:
+          - generic [ref=e31]: 05 — TEAM NAME
+          - textbox "05 — TEAM NAME" [ref=e32]:
+            - /placeholder: YOUR TEAM
+      - generic [ref=e33]:
+        - generic [ref=e34]: 06 — HANDLE
+        - textbox "06 — HANDLE" [ref=e35]:
+          - /placeholder: "@YOURHANDLE"
+      - button "GENERATE FRONT →" [ref=e36]
+    - generic [ref=e37]:
+      - generic [ref=e38]:
+        - generic [ref=e39]: ✦ HOUSE PASS ✦
+        - button "front" [ref=e40]
+        - button "back" [ref=e41]
+      - generic [ref=e46]:
+        - generic [ref=e81]:
+          - generic [ref=e82]:
+            - generic [ref=e83]: HACKER HOUSE
+            - generic [ref=e84]: गोवा
+          - generic [ref=e85]:
+            - generic [ref=e86]: GOA '26
+            - generic [ref=e102]: IDENTIFICATION
+        - generic [ref=e372]:
+          - generic [ref=e373]:
+            - generic [ref=e376]: NO PHOTOON FILE
+            - img [ref=e389]:
+              - generic [ref=e397]: HOUSE
+              - generic [ref=e399]: GOA BUILDER
+          - generic [ref=e400]:
+            - generic [ref=e401]:
+              - generic [ref=e402]: NAME
+              - generic [ref=e403]: EASWAR
+              - generic [ref=e404]: SAI
+            - generic [ref=e410]:
+              - generic [ref=e411]: DESIGNATION
+              - generic [ref=e412]: BUILDER
+            - generic [ref=e413]: PASS TYPE HOUSE PASS
+            - generic [ref=e415]:
+              - generic [ref=e416]: ID NO.
+              - generic [ref=e417]: HH26-5677
+            - generic [ref=e418]:
+              - generic [ref=e419]: VALID TILL
+              - generic [ref=e420]: 28.07.26
+          - generic [ref=e421]:
+            - generic [ref=e542]: SCANTO VERIFY
+            - generic [ref=e543]: HH26
+        - generic [ref=e544]: ✦ 4 DAYS. ONE RHYTHM. EVERYTHING INTENTIONAL. ✦
+      - paragraph [ref=e624]: Every pass prints with its own small imperfections — seeded from your name.

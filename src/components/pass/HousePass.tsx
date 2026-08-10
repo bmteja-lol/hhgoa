@@ -9,6 +9,8 @@ export type PassData = {
   organization: string;
   handle: string;
   photo: string | null;
+  builderClass?: string;
+  stack?: string;
 };
 
 function seeded(seed: string) {
@@ -282,6 +284,15 @@ export function PassFront({ data }: { data: PassData }) {
               28.07.26
             </div>
           </div>
+
+          {/* BUILDER CLASS */}
+          {data.builderClass && (
+            <div className="mt-3" style={{ fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.12em" }}>
+              <span style={{ color: "var(--pink)" }}>BUILDER CLASS </span>
+              <span style={{ fontWeight: 700, fontSize: 15, color: "var(--ink)" }}>{data.builderClass}</span>
+              {data.stack && <><span style={{ color: "var(--ink)", opacity: 0.4 }}> · </span><span style={{ color: "var(--goa)", fontWeight: 700 }}>{data.stack}</span></>}
+            </div>
+          )}
         </div>
 
         {/* --- QR Code (right, 16% = ~220px) --- */}
