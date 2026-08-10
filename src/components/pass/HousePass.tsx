@@ -245,8 +245,8 @@ export function PassFront({ data }: { data: PassData }) {
             </div>
           </div>
 
-          {/* PASS TYPE + ID metadata */}
-          <div className="mt-4 space-y-2" style={{ fontFamily: "var(--font-mono)", fontSize: 14 }}>
+          {/* PASS TYPE + TEAM on same line */}
+          <div className="mt-4 flex items-center gap-6" style={{ fontFamily: "var(--font-mono)", fontSize: 14 }}>
             <div>
               <span style={{ color: "var(--pink)", letterSpacing: "0.2em", fontSize: 16 }}>PASS TYPE </span>
               <span style={{ fontWeight: 700, fontSize: 26 }}>{(data.passType || "HOUSE PASS").toUpperCase()}</span>
