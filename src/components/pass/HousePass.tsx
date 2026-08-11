@@ -214,15 +214,11 @@ export function PassFront({ data }: { data: PassData }) {
               NAME
             </div>
             <div style={{ fontFamily: "var(--font-display)", fontWeight: 900, fontSize: 80, lineHeight: 0.9, color: "var(--ink)" }}>
-              {first || "YOUR"}
+              {first}
             </div>
-            {last ? (
+            {last && (
               <div style={{ fontFamily: "var(--font-display)", fontWeight: 900, fontSize: 80, lineHeight: 0.9, color: "var(--goa)", paddingLeft: 16 }}>
                 {last}
-              </div>
-            ) : (
-              <div style={{ fontFamily: "var(--font-display)", fontWeight: 900, fontSize: 80, lineHeight: 0.9, color: "var(--goa)", paddingLeft: 16 }}>
-                NAME
               </div>
             )}
           </div>
